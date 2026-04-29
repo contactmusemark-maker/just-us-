@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Just Us"
+version = "1.0.0"
+id = "artifacts/just-us"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21308
+
+[services.development]
+run = "pnpm --filter @workspace/just-us run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/just-us", "run", "build" ]
+publicDir = "artifacts/just-us/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21308"
+BASE_PATH = "/"
