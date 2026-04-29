@@ -81,5 +81,9 @@
   },
   "dependencies": {
     "firebase": "^12.12.1"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": "18.x"
   }
 }
